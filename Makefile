@@ -4,10 +4,10 @@ postgres:
 	docker run --name pg-local -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:14-alpine
 
 createdb:
-	docker exec -it pg-local createdb --username=root --owner=root db_biller
+	docker exec -it pg-local createdb --username=root --owner=root db_tasks
 
 dropdb:
-	docker exec -it pg-local dropdb db_biller
+	docker exec -it pg-local dropdb db_tasks
 
 migrateup:
 	migrate -path db/migration -database "$(DB_URL)" -verbose up
