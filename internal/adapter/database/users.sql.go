@@ -124,7 +124,8 @@ UPDATE users
 SET
   name = $1,
   email = $2,
-  password= $3
+  password= $3,
+  updated_at=now()
 WHERE id = $4
 RETURNING id, name, email, password, created_at, updated_at
 `
