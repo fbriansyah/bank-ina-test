@@ -61,3 +61,12 @@ func RandomRefferenceNumber() string {
 
 	return strings.ToUpper(sha)
 }
+
+// RandomEmail generate random email for testing.
+func RandomEmail(n int) string {
+	return fmt.Sprintf("%s@%s.com", RandomString(n), RandomString(6))
+}
+
+func RandomName() string {
+	return fmt.Sprintf("%s %s ", RandomString(5), RandomString(6))
+}
