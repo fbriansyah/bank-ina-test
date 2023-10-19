@@ -17,7 +17,7 @@ type ServicePort interface {
 	// GetUserByID get data user by user ID
 	GetUserByID(id int32) (dmuser.User, error)
 	UpdateUser(id int32, user dmuser.User) (dmuser.User, error)
-	DeleteUser(id int32) (dmuser.User, error)
+	DeleteUser(id int32) error
 
 	CreateTask(userID int32, title, description string) (dmtask.Task, error)
 	ListTasks() ([]dmtask.Task, error)
