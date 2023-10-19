@@ -51,6 +51,9 @@ func (s *Service) UpdateUser(id int32, user dmuser.User) (dmuser.User, error) {
 		Password: usr.Password,
 		ID:       id,
 	})
+	if err != nil {
+		return dmuser.User{}, err
+	}
 
 	user.ID = id
 
