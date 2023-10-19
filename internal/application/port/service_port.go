@@ -20,8 +20,8 @@ type ServicePort interface {
 	DeleteUser(id int32) error
 
 	CreateTask(userID int32, title, description string) (dmtask.Task, error)
-	ListTasks() ([]dmtask.Task, error)
+	ListTasks(userID int32) ([]dmtask.Task, error)
 	GetTaskByID(id int32) (dmtask.Task, error)
 	UpdateTask(task dmtask.Task) (dmtask.Task, error)
-	DeleteTasks(id int32) (dmtask.Task, error)
+	DeleteTasks(id int32) error
 }
