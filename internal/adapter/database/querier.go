@@ -9,11 +9,17 @@ import (
 )
 
 type Querier interface {
+	CreateTask(ctx context.Context, arg CreateTaskParams) (Task, error)
 	CreateUser(ctx context.Context, arg CreateUserParams) (User, error)
+	DeleteTask(ctx context.Context, id int32) error
 	DeleteUser(ctx context.Context, id int32) error
+	GetAllTask(ctx context.Context) ([]Task, error)
+	GetAllTaskByUser(ctx context.Context, userID int32) ([]Task, error)
 	GetAllUser(ctx context.Context) ([]User, error)
+	GetTaskByID(ctx context.Context, id int32) (Task, error)
 	GetUserByEmail(ctx context.Context, email string) (User, error)
 	GetUserByID(ctx context.Context, id int32) (User, error)
+	UpdateTask(ctx context.Context, arg UpdateTaskParams) (Task, error)
 	UpdateUser(ctx context.Context, arg UpdateUserParams) (User, error)
 }
 
