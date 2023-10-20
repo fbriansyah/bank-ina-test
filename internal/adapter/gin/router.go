@@ -21,6 +21,7 @@ func (s *GinAdapter) setupRouter() {
 	router.GET("/users", s.ListUsers)
 	router.GET("/users/:id", s.GetUserByID)
 	router.PUT("/users/:id", s.UpdateUser)
+	router.DELETE("/users/:id", s.DeleteUser)
 
 	s.router = router
 }

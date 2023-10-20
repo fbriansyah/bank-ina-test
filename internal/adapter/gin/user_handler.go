@@ -1,6 +1,7 @@
 package gin
 
 import (
+	"fmt"
 	"net/http"
 
 	dmuser "github.com/fbriansyah/bank-ina-test/internal/application/domain/user"
@@ -65,4 +66,23 @@ func (s *GinAdapter) UpdateUser(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, user)
+}
+
+func (s *GinAdapter) DeleteUser(ctx *gin.Context) {
+	var reqUri getUserByIDRequest
+
+	if err := ctx.ShouldBindUri(&reqUri); err != nil {
+		ctx.JSON(http.StatusBadRequest, errorResponse(err))
+		return
+	}
+
+	err := s.service.DeleteUser(reqUri.ID)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, errorResponse(err))
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": fmt.Sprintf("success delete user with id %s", reqUri.ID),
+	})
 }
