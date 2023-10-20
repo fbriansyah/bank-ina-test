@@ -24,3 +24,6 @@ make run # run application
 ```bash
 make compose-up
 ```
+
+## How To Access
+We can import postman collection from file `Task.postman_collection.json`
