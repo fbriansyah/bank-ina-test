@@ -23,5 +23,12 @@ func (s *GinAdapter) setupRouter() {
 	router.PUT("/users/:id", s.UpdateUser)
 	router.DELETE("/users/:id", s.DeleteUser)
 
+	taskGroup := router.Group("/").Use(authMiddleware(s.service))
+	taskGroup.POST("/tasks", s.CreateTask)
+	taskGroup.GET("/tasks", s.ListTaks)
+	taskGroup.GET("/tasks/:id", s.GetTask)
+	taskGroup.PUT("/tasks/:id", s.UpdateTask)
+	taskGroup.DELETE("/tasks/:id", s.DeleteTask)
+
 	s.router = router
 }
