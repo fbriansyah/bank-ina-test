@@ -15,6 +15,11 @@ func (s *GinAdapter) ListUsers(ctx *gin.Context) {
 		return
 	}
 
+	if listUsers == nil {
+		ctx.JSON(http.StatusOK, []dmuser.User{})
+		return
+	}
+
 	ctx.JSON(http.StatusOK, listUsers)
 }
 
