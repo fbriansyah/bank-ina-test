@@ -83,6 +83,6 @@ func (s *GinAdapter) DeleteUser(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
-		"message": fmt.Sprintf("success delete user with id %s", reqUri.ID),
+		"message": fmt.Sprintf("success delete user with id %d", reqUri.ID),
 	})
 }
