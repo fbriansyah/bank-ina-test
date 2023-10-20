@@ -30,12 +30,6 @@ sqlc-win:
 	docker run --rm -v ${pwd}:/src -w /src kjconroy/sqlc generate
 
 run:
-	go run ./cmd/main.go
+	go run ./cmd/
 
-build-image:
-	docker build -t efner/biller-microservice:1.0 .
-
-deploy: build-image
-	docker push efner/biller-microservice:1.0
-
-.PHONY: postgres createdb migrateup migrateup1 migratedown migratedown1 new_migration re-db run build-image
+.PHONY: postgres createdb migrateup migrateup1 migratedown migratedown1 new_migration re-db run
