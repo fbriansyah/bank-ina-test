@@ -10,6 +10,10 @@ type GinAdapter struct {
 	router  *gin.Engine
 }
 
+type getUserByIDRequest struct {
+	ID int32 `uri:"id" binding:"required,min=1"`
+}
+
 func NewAdapter(service port.ServicePort) *GinAdapter {
 	server := &GinAdapter{
 		service: service,

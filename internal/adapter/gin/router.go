@@ -16,7 +16,11 @@ func (s *GinAdapter) setupRouter() {
 	router.Use(cors.New(corsConfig))
 
 	router.POST("/login", s.Login)
+
 	router.POST("/users", s.Register)
+	router.GET("/users", s.ListUsers)
+	router.GET("/users/:id", s.GetUserByID)
+	router.PUT("/users/:id", s.UpdateUser)
 
 	s.router = router
 }
