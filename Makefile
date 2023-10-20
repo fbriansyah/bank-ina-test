@@ -29,7 +29,13 @@ re-db: dropdb createdb migrateup
 sqlc-win:
 	docker run --rm -v ${pwd}:/src -w /src kjconroy/sqlc generate
 
+compose-up:
+	docker-compose up --build -d
+
+compose-down:
+	docker-compose down
+
 run:
 	go run ./cmd/
 
-.PHONY: postgres createdb migrateup migrateup1 migratedown migratedown1 new_migration re-db run
+.PHONY: postgres createdb migrateup migrateup1 migratedown migratedown1 new_migration re-db run compose-up compose-down
